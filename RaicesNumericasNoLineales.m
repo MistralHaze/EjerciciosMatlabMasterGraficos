@@ -36,19 +36,19 @@ function fx = Fun(x,exerciseNumber)
         case 4
           fx = exp((1/2)*x) + 5*x -5; 
         otherwise
-            disp("exercise not found");
+            fprintf('exercise not found \n');
     end
 end
 
 function biseccion(x1, x2, errorThreshold, ejNumber)
-    display("bissection method. Ej" + ejNumber);
+    fprintf('Método de la bisección. Ej %d \n', ejNumber);
     A = Fun(x1, ejNumber);
     B = Fun(x2, ejNumber);
     if(A == 0 || B ==0 )
         if(A==0)
-             display("la raiz de f(x) se encuentra en " + A);
+             fprintf('la raiz de f(x) se encuentra en %f \n',  A);
         else
-             display("la raiz de f(x) se encuentra en " + B);
+             fprintf('la raiz de f(x) se encuentra en %f \n',  B);
         end
     end
    
@@ -62,7 +62,7 @@ function biseccion(x1, x2, errorThreshold, ejNumber)
            
             xm = (x1+x2)/2;
             if(xm == 0)
-                 display("el cero se encuentra en " + xm );
+                 fprintf('el cero se encuentra en %f \n',  xm );
             else
             xmf = Fun(xm, ejNumber);
             sxm = sign(xmf);
@@ -78,12 +78,12 @@ function biseccion(x1, x2, errorThreshold, ejNumber)
         end
         nIterations = nIterations+1;
     end
-    display("El cero de la funcion se encuentra en el intervalo " + xm + " tras n = " + nIterations + " iteranciones");
+    fprintf('El cero de la funcion se encuentra en el intervalo %f tras n = %d iteranciones \n', xm, nIterations);
 
 end
 
 function newtonRaphson(x0,errorThreshold, ejNumber)
-    display("Método de Newton-Raphson. Ej" + ejNumber);
+    fprintf('Método de Newton-Raphson. Ej %d\n',  ejNumber);
     
     fx= Fun(x0,ejNumber);
     
@@ -95,22 +95,18 @@ function newtonRaphson(x0,errorThreshold, ejNumber)
     nIterations = 0;
     
     while (errorThreshold < calculatedError )
-%         x=x0;
-%         fPrima=eval(subs(fPrima,x,x0));
-      fPrima = vpa(subs(fPrima,x,x0));
+      fPrima=eval(subs(fPrima,x,x0));
       fx= Fun(x0,ejNumber);
       
       x1=x0-(fx/fPrima);
       x1=round(double(x1),4);
-      
-      %calculatedError = log((x1-x0)/errorThreshold)/log(2);
-      
+     
       calculatedError =abs(abs(x1)-abs(x0));
       
       x0=x1;
       nIterations = nIterations+1;
     end
 
-    display("La raiz de la función se encuentra en " +  x0 + " tras n = " + nIterations + " iteranciones.");
+    fprintf('La raiz de la función se encuentra en %f tras n = %d iteranciones.\n',x0,nIterations);
 end
 
