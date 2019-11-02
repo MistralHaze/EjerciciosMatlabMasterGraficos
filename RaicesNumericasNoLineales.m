@@ -1,4 +1,4 @@
-function nolineal()
+function RaicesNumericasNoLineales()
 %Ej 2.1
 biseccion(1,4,(1/100),1);
 %Ej 2.2
@@ -78,12 +78,12 @@ function biseccion(x1, x2, errorThreshold, ejNumber)
         end
         nIterations = nIterations+1;
     end
-    display("el cero de la funcion se encuentra en el intervalo " + xm + " tras n = " + nIterations + " iteranciones");
+    display("El cero de la funcion se encuentra en el intervalo " + xm + " tras n = " + nIterations + " iteranciones");
 
 end
 
 function newtonRaphson(x0,errorThreshold, ejNumber)
-    display("newtonRaphson method. Ej" + ejNumber);
+    display("Método de Newton-Raphson. Ej" + ejNumber);
     
     fx= Fun(x0,ejNumber);
     
@@ -94,19 +94,23 @@ function newtonRaphson(x0,errorThreshold, ejNumber)
     calculatedError = Inf; 
     nIterations = 0;
     
-    while (errorThreshold <= calculatedError )
+    while (errorThreshold < calculatedError )
+%         x=x0;
+%         fPrima=eval(subs(fPrima,x,x0));
       fPrima = vpa(subs(fPrima,x,x0));
       fx= Fun(x0,ejNumber);
       
       x1=x0-(fx/fPrima);
       x1=round(double(x1),4);
       
-      calculatedError = log((x1-x0)/errorThreshold)/log(2);
+      %calculatedError = log((x1-x0)/errorThreshold)/log(2);
+      
+      calculatedError =abs(abs(x1)-abs(x0));
       
       x0=x1;
       nIterations = nIterations+1;
     end
 
-    display("la raiz de la función se encuentra en " +  x0 + " tras n = " + nIterations + " iteranciones");
+    display("La raiz de la función se encuentra en " +  x0 + " tras n = " + nIterations + " iteranciones.");
 end
 
