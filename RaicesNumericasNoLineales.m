@@ -1,4 +1,9 @@
 function RaicesNumericasNoLineales()
+% Ej 1.0
+raizAlAzar=3;
+rootByFZero =fzero (@(x) x*sin(0.5 + x^2) + exp(-x) ,raizAlAzar);
+fprintf('Por fzero, la raiz de x*sin(0.5 + x^2) + exp(-x) en %f está en %f \n', raizAlAzar, rootByFZero);
+
 %Ej 2.1
 biseccion(1,4,(1/100),1);
 %Ej 2.2
@@ -27,6 +32,8 @@ end
 
 function fx = Fun(x,exerciseNumber)
     switch exerciseNumber
+        case 0
+          fx= x*sin(0.5 + x^2) + exp(-x);
         case 1
           fx = sin(x)- 0.3*exp(x);
         case 2
