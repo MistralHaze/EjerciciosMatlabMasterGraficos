@@ -3,7 +3,7 @@ a=0;
 b=2*pi;
 
 % Plot f(x) and show the real value on the terminal
-x = a:0.001:b;
+x = a:0.01:b;
 plot(x, cos(x.^2 -1));
 res =trapz(x, cos(x.^2 -1));
 fprintf('el area real es de %f \n', res);
@@ -30,18 +30,18 @@ fprintf('el area del trapecio es %f \n', trapecio);
 end
 
 function Simpson1_3(a,b)
- D=6;
- c = [1,4,1];
- n = 3;
- first_part= (b-a)/D;
- x= [a, (a+b)/2, b];
- n_c=0;
- for i=1:n
-     n_c = n_c + c(i)* x(i);
- end
- simpson = first_part * n_c;
- fprintf('el area por Simpson 1/3 es %f \n', simpson);
+c = [1,4,1];
+x= [a, (a+b)/2, b];
+D=6;
+n = 3;
+first_part= (b-a)/D;
 
+n_c=0;
+for i=1:n
+    n_c = n_c + c(i)* Fun(x(i));
+end
+simpson = first_part * n_c;
+fprintf('el area por Simpson 1/3 es %f \n', simpson);
 end
 
 function fx= Fun(x)
