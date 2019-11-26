@@ -6,7 +6,7 @@ b=2*pi;
 x = a:0.01:b;
 plot(x, cos(x.^2 -1));
 res =trapz(x, cos(x.^2 -1));
-fprintf('el area real es de %f \n', res);
+fprintf('el area aproximada es de %f \n', res);
 
 
 Rectangulo(a,b);
@@ -18,7 +18,6 @@ function Rectangulo(a,b)
 extremo_izq= Fun(a)*(b-a);  
 extremo_der= Fun(b)*(b-a);
 punto_medio=Fun((a+b)/2)*(b-a);
-% res= extremo_izq+extremo_der+punto_medio;
 fprintf('punto izq %f \npunto centro %f \npunto der %f\n', extremo_izq, extremo_der, punto_medio);
 end
 
@@ -35,7 +34,6 @@ x= [a, (a+b)/2, b];
 D=6;
 n = 3;
 first_part= (b-a)/D;
-
 n_c=0;
 for i=1:n
     n_c = n_c + c(i)* Fun(x(i));

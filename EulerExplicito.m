@@ -1,6 +1,8 @@
 function EulerExplicito()
-% Ej0();
-Ej1();
+ fprintf('Ej 1 \n');
+ Ej0();
+% fprintf('Ej 2 \n');
+% Ej1();
 end
 
 
@@ -73,6 +75,7 @@ fprintf('U%i %f ',i, u(i));
 fprintf('V%i %f ',i, v(i));
 fprintf('\n')
 end
+plot(0:h:t_end, u, 0:h:t_end, v);
 
 end
 

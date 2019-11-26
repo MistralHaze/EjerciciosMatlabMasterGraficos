@@ -1,6 +1,6 @@
 function ResolucionNumericaSistemasLineales()
-Ej1(1)
-Ej2(2)
+%  Ej1(1)
+ Ej2(2)
 end
 
 function Ej1(numEjercicio)
@@ -30,7 +30,7 @@ tolerancia = 0.001;
 fprintf('\n');
 fprintf('Ej 2\n');
 
-GaussSeidel(A, b, tolerancia,numEjercicio);
+% GaussSeidel(A, b, tolerancia,numEjercicio);
 Jacobi(A,b, tolerancia,numEjercicio);
 end
 
@@ -96,11 +96,9 @@ while (tolerancia < calculatedError)
         %siguientes calculos
         sumK=0;
         sumKminus=0;
-        
         for j=1:(i-1)
              sumK = sumK +  A(i,j)*x(j);
         end
-        
         for j=i+1:n
             sumKminus = sumKminus +  A(i,j)*xMinusOne(j); 
         end
